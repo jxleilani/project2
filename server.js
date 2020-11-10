@@ -24,7 +24,8 @@ app.use(
   fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmpProject2/"
-}));
+  })
+);
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);

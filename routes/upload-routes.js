@@ -8,7 +8,7 @@ cloudinary.config({
   api_secret: "c1YvAFKpIXS_W5emhI0NY9Mw_pE"
 });
 
-module.exports = function(app){
+module.exports = function(app) {
   app.get("/upload", (req, res) => {
     res.sendFile(path.join(__dirname, "../public", "upload.html"));
   });
@@ -27,4 +27,4 @@ module.exports = function(app){
         }
       });
   });
-}
+};

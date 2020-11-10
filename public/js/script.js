@@ -1,4 +1,3 @@
-const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dzha9rezq/upload";
 const CLOUDINARY_UPLOAD_PRESET = "zooeakhu";
 
 $("#image").change(e => {
