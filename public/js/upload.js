@@ -2,6 +2,7 @@ const CLOUDINARY_UPLOAD_PRESET = "zooeakhu";
 
 $("#image").change(e => {
   const file = e.target.files[0];
+  const fileName = e.target.files[0].name;
   console.log(e);
 
   const formData = new FormData();
@@ -11,7 +12,7 @@ $("#image").change(e => {
   console.log(formData);
 
   $.ajax({
-    url: "/api/upload",
+    url: "/api/upload/" + fileName,
     data: formData,
     type: "POST",
     contentType: false,

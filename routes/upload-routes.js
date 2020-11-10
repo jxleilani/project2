@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const cloudinary = require("cloudinary");
 const path = require("path");
+const db = require("../models");
 
 cloudinary.config({
   cloud_name: "dzha9rezq",
@@ -13,12 +14,21 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public", "upload.html"));
   });
 
-  app.post("/api/upload", (req, res) => {
+  app.post("/api/upload/:filename", (req, res) => {
     cloudinary.uploader
       .upload(req.files.file.tempFilePath)
       .then(result => {
+        console.log(result);
         console.log("successfully uploaded", result.secure_url);
         res.json(result);
+
+        //now take result.secure_url and save it to db
+        db.Tops.create({
+          topsName: req.params.filename,
+          topsUrl: result.secure_url
+        }).then(dbTop => {
+          console.log("created item" + dbTop);
+        });
       })
       .catch(err => {
         console.log("there was an error");
