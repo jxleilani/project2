@@ -37,4 +37,15 @@ module.exports = function(app) {
         }
       });
   });
+
+  app.get("/tops", (req, res) => {
+    db.Tops.findAll({}).then(data => {
+      // const imagesObj = {
+      //   images: data
+      // };
+      console.log(data[0].topsName);
+      // res.render("test", imagesObj);
+      res.json(data);
+    });
+  });
 };
