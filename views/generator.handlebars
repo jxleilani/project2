@@ -15,21 +15,23 @@
     <div class="container">
 
         <div class="header">Header</div>
-
+        {{!-- TOPS --}}
         <div class="row">
             <div class="col">
                 <button id="lockTop"><i class="fas fa-lock-open"></i></button>
             </div>
             <div class="col">
-                <div id="topsImage"><img
-                        src="https://res.cloudinary.com/dzha9rezq/image/upload/c_scale,h_250/v1605027844/rqloduhnsbvielhbh8r8.jpg">
+                <div id="topsImage">
+                    {{#each tops}}
+                    <img src="{{this.dataValues.topsUrl}}">
+                    {{/each}}
                 </div>
             </div>
             <div class="col">
                 <button id="refreshTops">Refresh</button>
             </div>
         </div>
-
+        {{!-- BOTTOMS --}}
         <div class="row">
             <div class="col">
                 <button id="lockBottoms"><i class="fas fa-lock-open"></i></button>
@@ -41,7 +43,7 @@
                 <button id="refreshBottoms">Refresh</button>
             </div>
         </div>
-
+        {{!-- SHOES --}}
         <div class="row">
             <div class="col">
                 <button id="lockShoes"><i class="fas fa-lock-open"></i></button>
