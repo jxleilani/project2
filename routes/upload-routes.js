@@ -3,6 +3,7 @@ const cloudinary = require("cloudinary");
 const path = require("path");
 const db = require("../models");
 
+
 cloudinary.config({
   cloud_name: "dzha9rezq",
   api_key: "458581165992562",
@@ -40,12 +41,12 @@ module.exports = function(app) {
 
   app.get("/tops", (req, res) => {
     db.Tops.findAll({}).then(data => {
-      // const imagesObj = {
-      //   images: data
-      // };
-      console.log(data[0].topsName);
-      // res.render("test", imagesObj);
-      res.json(data);
+      console.log(data.dataValues);
+
+      const imagesObj = {
+        tops: data
+      };
+      res.render("test", imagesObj);
     });
   });
 };
