@@ -3,7 +3,6 @@ const cloudinary = require("cloudinary");
 const path = require("path");
 const db = require("../models");
 
-
 cloudinary.config({
   cloud_name: "dzha9rezq",
   api_key: "458581165992562",
