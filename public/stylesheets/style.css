@@ -2,3 +2,57 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+body {
+  font-family: 'Lato';
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Catamaran';
+  font-weight: 800 !important;
+}
+
+h2{
+color: #ee0979;
+}
+
+.button-login, .button-Signup {
+  background-color: #ff6a00 !important;
+  text-transform: uppercase;
+  font-family: 'Catamaran';
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: #ffffff;
+}
+
+.button-login, .button-Signup {
+  background-color: #ff6a00;
+  border-color: #ff6a00;
+}
+
+.button-login:active, .button-login:focus, .button-login:hover, .button-Signup:active, .button-Signup:focus, .button-Signup:hover{
+  background-color: #ee0979 !important;
+  border-color: #ee0979!important;
+}
+
+.button-login:focus {
+  box-shadow: 0 0 0 0.2rem #ee0979;
+}
+
+@media (min-width: 992px) {
+  header.masthead {
+    padding-top: calc(10rem + 55px);
+    padding-bottom: 10rem;
+  }
+  header.masthead .masthead-content .masthead-heading {
+    font-size: 6rem;
+  }
+  header.masthead .masthead-content .masthead-subheading {
+    font-size: 4rem;
+  }
+}
