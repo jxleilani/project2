@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const cloudinary = require("cloudinary");
 const path = require("path");
+const { Sequelize } = require("../models");
 const db = require("../models");
 
 cloudinary.config({
@@ -39,13 +40,17 @@ module.exports = function(app) {
   });
 
   app.get("/tops", (req, res) => {
-    db.Tops.findAll({}).then(data => {
-      console.log(data.dataValues);
+    db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
+      data => {
+        // console.log(data.dataValues);
+        const imagesObj = {
+          tops: data
+        };
 
-      const imagesObj = {
-        tops: data
-      };
-      res.render("test", imagesObj);
-    });
+        res.render("test", imagesObj);
+
+        // res.json(data);
+      }
+    );
   });
 };
