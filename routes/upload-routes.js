@@ -40,15 +40,17 @@ module.exports = function(app) {
   });
 
   app.get("/tops", (req, res) => {
-    db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(data => {
-      // console.log(data.dataValues);
-      const imagesObj = {
-        tops: data
-      };
+    db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
+      data => {
+        // console.log(data.dataValues);
+        const imagesObj = {
+          tops: data
+        };
 
-      res.render("test", imagesObj);
+        res.render("test", imagesObj);
 
-      // res.json(data);
-    });
+        // res.json(data);
+      }
+    );
   });
 };
