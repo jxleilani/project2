@@ -88,7 +88,6 @@ module.exports = function(app) {
   });
 
   app.get("/tops", (req, res) => {
-
     db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
       data => {
         const topsObj = {
