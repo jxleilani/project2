@@ -1,26 +1,31 @@
 $("#refreshTops").on("click", e => {
   e.preventDefault();
 
-  $.ajax("/tops", {
+  $.ajax("/tops/new", {
     type: "GET"
-  }).then(() => {
-    location.reload();
+  }).then(res => {
+    // location.reload();
+    $("#topsImage").html(`<img src="${res}">`);
+    // console.log(res.responseText);
   });
 });
 
 $("#refreshBottoms").on("click", e => {
   e.preventDefault();
 
-  $.ajax("/bottoms", {
+  $.ajax("/bottoms/new", {
     type: "GET"
-  }).then(() => {
-    location.reload();
+  }).then(res => {
+    $("#bottomsImage").html(`<img src="${res}">`);
   });
 });
 
-$("#refreshShoes").on("click", () => {
-  $("#shoesImage").html(
-    // eslint-disable-next-line quotes
-    '<img src="https://res.cloudinary.com/dzha9rezq/image/upload/c_scale,h_250/v1605027639/oiyd0svurzi8gxcrep3d.jpg">'
-  );
+$("#refreshShoes").on("click", e => {
+  e.preventDefault();
+
+  $.ajax("/shoes/new", {
+    type: "GET"
+  }).then(res => {
+    $("#shoesImage").html(`<img src="${res}">`);
+  });
 });

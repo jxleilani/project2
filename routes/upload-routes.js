@@ -96,15 +96,39 @@ module.exports = function(app) {
         res.render("generator", topsObj);
       }
     );
+
+    //WHEN YOU FIRST LAND ON /TOPS NEED TO ALSO POPULATE THE BOTTOMS IMAGE
   });
 
-  app.get("/bottoms", (req, res) => {
+  //REFRESH BUTTONS
+  app.get("/tops/new", (req, res) => {
+    db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
+      data => {
+        console.log(data[0].dataValues.topsUrl.toString());
+        // const topsObj = {
+        //   tops: data
+        // };
+        res.send(data[0].dataValues.topsUrl);
+      }
+    );
+  });
+
+  app.get("/bottoms/new", (req, res) => {
     db.Bottoms.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
       data => {
-        const bottomsObj = {
-          bottoms: data
-        };
-        res.render("generator", bottomsObj);
+        // const bottomsObj = {
+        //   bottoms: data
+        // };
+        // res.render("generator", bottomsObj);
+        res.send(data[0].dataValues.bottomsUrl);
+      }
+    );
+  });
+
+  app.get("/shoes/new", (req, res) => {
+    db.Shoes.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
+      data => {
+        res.send(data[0].dataValues.shoesUrl);
       }
     );
   });
