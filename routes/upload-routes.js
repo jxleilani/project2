@@ -7,7 +7,7 @@ const db = require("../models");
 cloudinary.config({
   cloud_name: "dzha9rezq",
   api_key: "458581165992562",
-  api_secret: "c1YvAFKpIXS_W5emhI0NY9Mw_pE",
+  api_secret: "c1YvAFKpIXS_W5emhI0NY9Mw_pE"
 });
 
 module.exports = function(app) {
@@ -26,7 +26,7 @@ module.exports = function(app) {
         //now take result.secure_url and save it to db
         db.Tops.create({
           topsName: req.params.filename,
-          topsUrl: result.secure_url,
+          topsUrl: result.secure_url
         }).then(dbTop => {
           console.log("created item" + dbTop);
         });
@@ -50,7 +50,7 @@ module.exports = function(app) {
         //now take result.secure_url and save it to db
         db.Bottoms.create({
           bottomsName: req.params.filename,
-          bottomsUrl: result.secure_url,
+          bottomsUrl: result.secure_url
         }).then(dbBottom => {
           console.log("created item" + dbBottom);
         });
@@ -74,7 +74,7 @@ module.exports = function(app) {
         //now take result.secure_url and save it to db
         db.Shoes.create({
           shoesName: req.params.filename,
-          shoesUrl: result.secure_url,
+          shoesUrl: result.secure_url
         }).then(dbShoe => {
           console.log("created item" + dbShoe);
         });
