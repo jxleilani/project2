@@ -87,27 +87,33 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/tops", (req, res) => {
-    db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
-      data => {
-        const topsObj = {
-          tops: data
-        };
-        res.render("generator", topsObj);
-      }
-    );
-
-    //WHEN YOU FIRST LAND ON /TOPS NEED TO ALSO POPULATE THE BOTTOMS IMAGE
+  //Generator landing page
+  app.get("/generator", async (req, res) => {
+    const topsData = await db.Tops.findAll({
+      order: Sequelize.literal("rand()"),
+      limit: 1
+    });
+    // waits for tops.findall and assigns to topsData
+    const bottomsData = await db.Bottoms.findAll({
+      order: Sequelize.literal("rand()"),
+      limit: 1
+    });
+    const shoesData = await db.Shoes.findAll({
+      order: Sequelize.literal("rand()"),
+      limit: 1
+    });
+    const hbsObj = {
+      tops: topsData,
+      bottoms: bottomsData,
+      shoes: shoesData
+    };
+    res.render("generator", hbsObj);
   });
 
   //REFRESH BUTTONS
   app.get("/tops/new", (req, res) => {
     db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
       data => {
-        console.log(data[0].dataValues.topsUrl.toString());
-        // const topsObj = {
-        //   tops: data
-        // };
         res.send(data[0].dataValues.topsUrl);
       }
     );
@@ -116,10 +122,6 @@ module.exports = function(app) {
   app.get("/bottoms/new", (req, res) => {
     db.Bottoms.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
       data => {
-        // const bottomsObj = {
-        //   bottoms: data
-        // };
-        // res.render("generator", bottomsObj);
         res.send(data[0].dataValues.bottomsUrl);
       }
     );

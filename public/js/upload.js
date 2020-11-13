@@ -1,5 +1,5 @@
 const CLOUDINARY_UPLOAD_PRESET = "zooeakhu";
-
+//Tops Upload Button
 $("#topsUpload").change(e => {
   const file = e.target.files[0];
   const fileName = e.target.files[0].name;
@@ -26,6 +26,7 @@ $("#topsUpload").change(e => {
     });
 });
 
+//Bottoms Upload Button
 $("#bottomsUpload").change(e => {
   const file = e.target.files[0];
   const fileName = e.target.files[0].name;
@@ -52,6 +53,7 @@ $("#bottomsUpload").change(e => {
     });
 });
 
+//Shoes Upload Button
 $("#shoesUpload").change(e => {
   const file = e.target.files[0];
   const fileName = e.target.files[0].name;
