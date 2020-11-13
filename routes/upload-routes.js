@@ -105,9 +105,9 @@ module.exports = function(app) {
     db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
       data => {
         console.log(data[0].dataValues.topsUrl.toString());
-        const topsObj = {
-          tops: data
-        };
+        // const topsObj = {
+        //   tops: data
+        // };
         res.send(data[0].dataValues.topsUrl);
       }
     );
@@ -116,9 +116,9 @@ module.exports = function(app) {
   app.get("/bottoms/new", (req, res) => {
     db.Bottoms.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
       data => {
-        const bottomsObj = {
-          bottoms: data
-        };
+        // const bottomsObj = {
+        //   bottoms: data
+        // };
         // res.render("generator", bottomsObj);
         res.send(data[0].dataValues.bottomsUrl);
       }

@@ -3,7 +3,7 @@ $("#refreshTops").on("click", e => {
 
   $.ajax("/tops/new", {
     type: "GET"
-  }).then((res) => {
+  }).then(res => {
     // location.reload();
     $("#topsImage").html(`<img src="${res}">`);
     // console.log(res.responseText);
@@ -15,7 +15,7 @@ $("#refreshBottoms").on("click", e => {
 
   $.ajax("/bottoms/new", {
     type: "GET"
-  }).then((res) => {
+  }).then(res => {
     $("#bottomsImage").html(`<img src="${res}">`);
   });
 });
@@ -25,7 +25,7 @@ $("#refreshShoes").on("click", e => {
 
   $.ajax("/shoes/new", {
     type: "GET"
-  }).then((res) => {
+  }).then(res => {
     $("#shoesImage").html(`<img src="${res}">`);
   });
 });
