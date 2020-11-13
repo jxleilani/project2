@@ -88,12 +88,24 @@ module.exports = function(app) {
   });
 
   app.get("/tops", (req, res) => {
+
     db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
       data => {
-        const imagesObj = {
+        const topsObj = {
           tops: data
         };
-        res.render("generator", imagesObj);
+        res.render("generator", topsObj);
+      }
+    );
+  });
+
+  app.get("/bottoms", (req, res) => {
+    db.Bottoms.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
+      data => {
+        const bottomsObj = {
+          bottoms: data
+        };
+        res.render("generator", bottomsObj);
       }
     );
   });
