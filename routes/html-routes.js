@@ -27,10 +27,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/generator", (req, res) => {
-    res.render("generator");
-  });
-
   // TEST THE UPLOAD PAGE
   app.get("/upload", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/upload.html"));
