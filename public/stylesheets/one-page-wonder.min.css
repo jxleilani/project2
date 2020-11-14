@@ -48,13 +48,14 @@ h6 {
 header.masthead {
   position: relative;
   overflow: hidden;
-  padding-top: calc(7rem + 72px);
+  padding-top: 7rem;
   padding-bottom: 7rem;
   background: linear-gradient(0deg, #ff6a00 0, #ee0979 100%);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
-  background-size: cover;
+  background-size: cover; 
+  height: 600px; 
 }
 header.masthead .masthead-content {
   z-index: 1;
@@ -98,8 +99,8 @@ header.masthead .bg-circle-4 {
 }
 @media (min-width: 992px) {
   header.masthead {
-    padding-top: calc(10rem + 55px);
-    padding-bottom: 10rem;
+    padding-top: calc(5rem);
+    padding-bottom: 5rem;
   }
   header.masthead .masthead-content .masthead-heading {
     font-size: 6rem;
