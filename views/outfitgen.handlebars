@@ -19,6 +19,7 @@
 
   <!-- Custom styles for this template -->
   <link href="stylesheets/one-page-wonder.min.css" rel="stylesheet">
+  <link href="stylesheets/one-page-wonder.css" rel="stylesheet">
 
 </head>
 
@@ -39,48 +40,75 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Favorites</a>
           </li>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log out</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log out</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Welcome User!</h1>
-        <h5>Da.Mo.Jo's Virtual Closet provides the user a seamless fashion experience. With the Virtual Closet, you have the ability to upload your own styles and curate an entire outfit with the click of a button</h5>
-        <div class="row">
-          <div class="col-md-4 col-12">
-              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="topsSubmit">
-                <input type="file" id="topsUpload" name="image" accept="image/*" style="visibility:hidden; height:0; width:0;">
-                <label for="topsUpload">Upload Tops</label>
-              </button>
-          </div>
-          <div class="col-md-4 col-12">
-              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="bottomsSubmit">
-                <input type="file" id="bottomsUpload" name="image" accept="image/*" style="visibility:hidden; height:0; width:0;">
-                <label for="bottomsUpload">Upload Bottoms</label>
-              </button>
-          </div>
-          <div class="col-md-4 col-12">
-              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="shoesSubmit">
-                <input type="file" id="shoesUpload" name="image" accept="image/*" style="visibility:hidden; height:0; width:0;">
-                <label for="shoesUpload">Upload Shoes</label>
-              </button>
-          </div>
-        </div>
-
-        <br>
-        <a href="/generator" class="btn btn-primary btn-xl rounded-pill mt-5">Generate Outfit</a>
-      </br>
+        <h2>My Items</h2>
       </div>
     </div>
   </header>
 
+  <section>
+    <div class="container">
+
+        <div class="header">Header</div>
+        {{!-- TOPS --}}
+        <div class="row">
+            <div class="col">
+                <button id="lockTop"><i class="fas fa-lock-open"></i></button>
+            </div>
+            <div class="col">
+                <div id="topsImage">
+                    {{> tops}}
+                </div>
+            </div>
+            <div class="col">
+                <button id="refreshTops">Refresh</button>
+            </div>
+        </div>
+        {{!-- BOTTOMS --}}
+        <div class="row">
+            <div class="col">
+                <button id="lockBottoms"><i class="fas fa-lock-open"></i></button>
+            </div>
+            <div class="col">
+                <div id="bottomsImage">
+                    {{> bottoms}}
+                </div>
+            </div>
+            <div class="col">
+                <button id="refreshBottoms">Refresh</button>
+            </div>
+        </div>
+        {{!-- SHOES --}}
+        <div class="row">
+            <div class="col">
+                <button id="lockShoes"><i class="fas fa-lock-open"></i></button>
+            </div>
+            <div class="col">
+                <div id="shoesImage">
+                    {{> shoes}}
+                </div>
+            </div>
+            <div class="col">
+                <button id="refreshShoes">Refresh</button>
+            </div>
+        </div>
+        {{!-- SAVE BUTTON --}}
+        <div class="favoriteButton">
+            <button id="saveBtn">Save My Outfit</button>
+            <button id="favoritesBtn">View My Favorites</button>
+        </div>
+
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="py-5 bg-black">
@@ -89,10 +117,8 @@
     </div>
     <!-- /.container -->
   </footer>
-
   <!-- Bootstrap core JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./js/upload.js"></script>
+  <script src="/js/generator.js"></script>
 </body>
-
 </html>
