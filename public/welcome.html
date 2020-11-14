@@ -55,29 +55,22 @@
         <h5>Do.Mo.Jo's Virtual Closet provides the user a seamless fashion experience. With the Virtual Closet, you have the ability to upload your own styles and curate an entire outfit with the click of a button</h5>
         <div class="row">
           <div class="col-md-4 col-12">
-          <form enctype="multipart/form-data" id="topsForm">
-              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="topsSubmit" type="submit">
-                <input type="file" id="topsUpload" name="image" accept="image/*" style="display:none;">
+              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="topsSubmit">
+                <input type="file" id="topsUpload" name="image" accept="image/*" style="visibility:hidden; height:0; width:0;">
                 <label for="topsUpload">Upload Tops</label>
               </button>
-          </form>
-        </div>
-  
-        <div class="col-md-4 col-12">
-          <form enctype="multipart/form-data" id="bottomsForm">
-              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="bottomsSubmit" type="submit">
-                <input type="file" id="bottomsUpload" name="image" accept="image/*" style="display:none;">
-                <label for="topsUpload">Upload Bottoms</label>
-              </button>
-          </form>
           </div>
           <div class="col-md-4 col-12">
-          <form enctype="multipart/form-data" id="shoesForm">
-              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="shoesSubmit" type="submit">
-                <input type="file" id="shoesUpload" name="image" accept="image/*" style="display:none;">
-                <label for="topsUpload">Upload Shoes</label>
+              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="bottomsSubmit">
+                <input type="file" id="bottomsUpload" name="image" accept="image/*" style="visibility:hidden; height:0; width:0;">
+                <label for="bottomsUpload">Upload Bottoms</label>
               </button>
-          </form>
+          </div>
+          <div class="col-md-4 col-12">
+              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="shoesSubmit">
+                <input type="file" id="shoesUpload" name="image" accept="image/*" style="visibility:hidden; height:0; width:0;">
+                <label for="shoesUpload">Upload Shoes</label>
+              </button>
           </div>
         </div>
 
@@ -97,7 +90,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+            Image 1
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
@@ -115,7 +108,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
+            image
           </div>
         </div>
         <div class="col-lg-6">
@@ -133,7 +126,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/03.jpg" alt="">
+            Imag 2
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
@@ -156,8 +149,7 @@
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>"
-
+  <script src="./js/upload.js"></script>
 </body>
 
 </html>
