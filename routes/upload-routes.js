@@ -134,4 +134,16 @@ module.exports = function(app) {
       }
     );
   });
+
+  //SAVE TO FAVORITES
+  app.post("/favorite", (req, res) => {
+    db.Favorites.create({
+      favTops: req.body.favTops,
+      favBottoms: req.body.favBottoms,
+      favShoes: req.body.favShoes
+    }).then(results => {
+      console.log(results);
+      res.end();
+    });
+  });
 };
