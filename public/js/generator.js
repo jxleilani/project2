@@ -29,3 +29,23 @@ $("#refreshShoes").on("click", e => {
     $("#shoesImage").html(`<img src="${res}">`);
   });
 });
+
+//SAVE BUTTON
+$("#saveBtn").on("click", () => {
+  const topsImageUrl = $("#topsImage img").attr("src");
+  const bottomsImageUrl = $("#bottomsImage img").attr("src");
+  const shoesImageUrl = $("#shoesImage img").attr("src");
+
+  const savedOutfit = {
+    favTops: topsImageUrl,
+    favBottoms: bottomsImageUrl,
+    favShoes: shoesImageUrl
+  };
+
+  $.ajax("/favorite", {
+    type: "POST",
+    data: savedOutfit
+  }).then(() => {
+    console.log("Outfit Saved");
+  });
+});
