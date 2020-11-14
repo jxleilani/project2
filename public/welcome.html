@@ -47,11 +47,36 @@
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h2 class="masthead-heading mb-0">Welcome User!</h2>
+        <h1 class="masthead-heading mb-0">Welcome User!</h1>
         <h5>Do.Mo.Jo's Virtual Closet provides the user a seamless fashion experience. With the Virtual Closet, you have the ability to upload your own styles and curate an entire outfit with the click of a button</h5>
-        <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Upload Tops</a>
-        <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Upload Bottoms</a>
-        <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Upload Shoes</a>
+        <div class="row">
+          <div class="col-md-4 col-12">
+          <form enctype="multipart/form-data" id="topsForm">
+              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="topsSubmit" type="submit">
+                <input type="file" id="topsUpload" name="image" accept="image/*" style="display:none;">
+                <label for="topsUpload">Upload Tops</label>
+              </button>
+          </form>
+        </div>
+  
+        <div class="col-md-4 col-12">
+          <form enctype="multipart/form-data" id="bottomsForm">
+              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="bottomsSubmit" type="submit">
+                <input type="file" id="bottomsUpload" name="image" accept="image/*" style="display:none;">
+                <label for="topsUpload">Upload Bottoms</label>
+              </button>
+          </form>
+          </div>
+          <div class="col-md-4 col-12">
+          <form enctype="multipart/form-data" id="shoesForm">
+              <button class="button btn btn-primary btn-xl rounded-pill mt-5" id="shoesSubmit" type="submit">
+                <input type="file" id="shoesUpload" name="image" accept="image/*" style="display:none;">
+                <label for="topsUpload">Upload Shoes</label>
+              </button>
+          </form>
+          </div>
+        </div>
+
         <br>
         <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Generate Outfit</a>
       </br>
