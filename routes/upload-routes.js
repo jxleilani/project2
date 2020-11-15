@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 const cloudinary = require("cloudinary");
-const path = require("path");
 const { Sequelize } = require("../models");
 const db = require("../models");
 
@@ -166,7 +165,7 @@ module.exports = function(app) {
     db.Favorites.findAll({}).then(data => {
       const hbsObj = {
         outfits: data
-      }
+      };
       res.render("favorites", hbsObj);
     });
   });
