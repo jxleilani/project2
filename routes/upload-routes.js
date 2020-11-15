@@ -21,12 +21,19 @@ module.exports = function(app) {
       .then(result => {
         console.log(result);
         console.log("successfully uploaded", result.secure_url);
+
+        const splitUrl = result.secure_url.split("/");
+        // eslint-disable-next-line prettier/prettier
+        const baseUrl = splitUrl[0] + "/" + splitUrl[1] + "/" + splitUrl[2] + "/" + splitUrl[3] + "/" + splitUrl[4] + "/" + splitUrl[5];
+        const endUrl = splitUrl[6] + "/" + splitUrl[7];
+
+        const newUrl = baseUrl + "/c_scale,h_300/" + endUrl;
         res.json(result);
 
         //now take result.secure_url and save it to db
         db.Tops.create({
           topsName: req.params.filename,
-          topsUrl: result.secure_url
+          topsUrl: newUrl
         }).then(dbTop => {
           console.log("created item" + dbTop);
         });
@@ -45,12 +52,19 @@ module.exports = function(app) {
       .then(result => {
         console.log(result);
         console.log("successfully uploaded", result.secure_url);
+
+        const splitUrl = result.secure_url.split("/");
+        // eslint-disable-next-line prettier/prettier
+        const baseUrl = splitUrl[0] + "/" + splitUrl[1] + "/" + splitUrl[2] + "/" + splitUrl[3] + "/" + splitUrl[4] + "/" + splitUrl[5];
+        const endUrl = splitUrl[6] + "/" + splitUrl[7];
+
+        const newUrl = baseUrl + "/c_scale,h_400/" + endUrl;
         res.json(result);
 
         //now take result.secure_url and save it to db
         db.Bottoms.create({
           bottomsName: req.params.filename,
-          bottomsUrl: result.secure_url
+          bottomsUrl: newUrl
         }).then(dbBottom => {
           console.log("created item" + dbBottom);
         });
@@ -69,12 +83,18 @@ module.exports = function(app) {
       .then(result => {
         console.log(result);
         console.log("successfully uploaded", result.secure_url);
+        const splitUrl = result.secure_url.split("/");
+        // eslint-disable-next-line prettier/prettier
+        const baseUrl = splitUrl[0] + "/" + splitUrl[1] + "/" + splitUrl[2] + "/" + splitUrl[3] + "/" + splitUrl[4] + "/" + splitUrl[5];
+        const endUrl = splitUrl[6] + "/" + splitUrl[7];
+
+        const newUrl = baseUrl + "/c_scale,h_175/" + endUrl;
         res.json(result);
 
         //now take result.secure_url and save it to db
         db.Shoes.create({
           shoesName: req.params.filename,
-          shoesUrl: result.secure_url
+          shoesUrl: newUrl
         }).then(dbShoe => {
           console.log("created item" + dbShoe);
         });
@@ -93,7 +113,6 @@ module.exports = function(app) {
       order: Sequelize.literal("rand()"),
       limit: 1
     });
-    // waits for tops.findall and assigns to topsData
     const bottomsData = await db.Bottoms.findAll({
       order: Sequelize.literal("rand()"),
       limit: 1
