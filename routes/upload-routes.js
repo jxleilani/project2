@@ -107,7 +107,7 @@ module.exports = function(app) {
       bottoms: bottomsData,
       shoes: shoesData
     };
-    res.render("generator", hbsObj);
+    res.render("outfitgen", hbsObj);
   });
 
   //REFRESH BUTTONS
