@@ -11,10 +11,6 @@ cloudinary.config({
 });
 
 module.exports = function(app) {
-  app.get("/upload", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public", "upload.html"));
-  });
-
   app.post("/api/upload/tops/:filename", (req, res) => {
     cloudinary.uploader
       .upload(req.files.file.tempFilePath)
@@ -163,6 +159,15 @@ module.exports = function(app) {
     }).then(results => {
       console.log(results);
       res.end();
+    });
+  });
+
+  app.get("/favorites", (req, res) => {
+    db.Favorites.findAll({}).then(data => {
+      const hbsObj = {
+        outfits: data
+      }
+      res.render("favorites", hbsObj);
     });
   });
 };

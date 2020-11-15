@@ -26,9 +26,4 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/welcome.html"));
   });
-
-  // TEST THE UPLOAD PAGE
-  app.get("/upload", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/upload.html"));
-  });
 };
