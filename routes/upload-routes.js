@@ -3,10 +3,12 @@ const cloudinary = require("cloudinary");
 const { Sequelize } = require("../models");
 const db = require("../models");
 
+require("dotenv").config();
+
 cloudinary.config({
-  cloud_name: "dzha9rezq",
-  api_key: "458581165992562",
-  api_secret: "c1YvAFKpIXS_W5emhI0NY9Mw_pE"
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
 });
 
 module.exports = function(app) {
