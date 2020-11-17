@@ -19,9 +19,10 @@
 * Cloudinary
 
 ## Future Development:
-* 
-* 
-* 
+* My Items page still under development
+* Link stores near by 
+* Reminders on outfits not worn in the last 3 months 
+* Reminders on styles worn often and suggestion on where to shop for similar styles online
 
 ## Contributors:
 Da: [Danielli](https://github.com/Elli360)  
