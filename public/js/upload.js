@@ -11,6 +11,7 @@ $("#topsUpload").change(e => {
 
   console.log(formData);
 
+  $(".loader").toggleClass("hideloader");
   $.ajax({
     url: "/api/upload/tops/" + fileName,
     data: formData,
@@ -20,6 +21,7 @@ $("#topsUpload").change(e => {
   })
     .then(res => {
       console.log("The response is: " + res);
+      $(".loader").toggleClass("hideloader");
     })
     .catch(err => {
       console.error("The error is: " + err);
@@ -38,6 +40,7 @@ $("#bottomsUpload").change(e => {
 
   console.log(formData);
 
+  $(".loader").toggleClass("hideloader");
   $.ajax({
     url: "/api/upload/bottoms/" + fileName,
     data: formData,
@@ -47,6 +50,7 @@ $("#bottomsUpload").change(e => {
   })
     .then(res => {
       console.log("The response is: " + res);
+      $(".loader").toggleClass("hideloader");
     })
     .catch(err => {
       console.error("The error is: " + err);
@@ -65,6 +69,7 @@ $("#shoesUpload").change(e => {
 
   console.log(formData);
 
+  $(".loader").toggleClass("hideloader");
   $.ajax({
     url: "/api/upload/shoes/" + fileName,
     data: formData,
@@ -74,6 +79,7 @@ $("#shoesUpload").change(e => {
   })
     .then(res => {
       console.log("The response is: " + res);
+      $(".loader").toggleClass("hideloader");
     })
     .catch(err => {
       console.error("The error is: " + err);
