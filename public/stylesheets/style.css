@@ -44,6 +44,10 @@ color: #ee0979;
   box-shadow: 0 0 0 0.2rem #ee0979;
 }
 
+.rounded-pill {
+  border-radius: 5rem;
+}
+
 @media (min-width: 992px) {
   header.masthead {
     padding-top: calc(10rem + 55px);

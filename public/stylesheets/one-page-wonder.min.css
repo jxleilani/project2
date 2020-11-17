@@ -55,7 +55,7 @@ header.masthead {
   background-position: center center;
   background-attachment: scroll;
   background-size: cover; 
-  height: 600px; 
+  height: 100vh; 
 }
 header.masthead .masthead-content {
   z-index: 1;
@@ -114,7 +114,7 @@ header.masthead .bg-circle-4 {
 }
 .btn-primary {
   background-color: #ee0979;
-  border-color: #ee0979;
+  border-color: #ffffff;
 }
 .btn-primary:active,
 .btn-primary:focus,
@@ -138,3 +138,4 @@ header.masthead .bg-circle-4 {
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
 }
+
