@@ -27,7 +27,7 @@ app.use(passport.session());
 app.use(
   fileUpload({
     useTempFiles: true,
-    tempFileDir: "/tmpProject2/"
+    tempFileDir: "/tmp/"
   })
 );
 
