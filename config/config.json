@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "pword",
+    "password": "Df140303!",
     "database": "fashion_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "pword",
+    "password": "Df140303!",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
