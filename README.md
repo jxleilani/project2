@@ -2,9 +2,9 @@
 ## Description:
 `Da.Mo.Jo’s` Virtual Closet provides the user a seamless fashion experience. With the Virtual Closet, you have the ability to upload your own styles and curate an entire outfit with the click of a button.  
 
-![Welcome Page](https://jxleilani.github.com/project2/public/images/welcome.png)  
-![Outfit generator page](https://jxleilani.github.com/project2/public/images/generator.png)  
-![Favorites page](https://jxleilani.github.com/project2/public/images/favs.png)  
+![Welcome Page](https://jxleilani.github.io/project2/public/images/welcome.png)  
+![Outfit generator page](https://jxleilani.github.io/project2/public/images/generator.png)  
+![Favorites page](https://jxleilani.github.io/project2/public/images/favs.png)  
 ## User Story:
 > AS A user  
 > I WANT TO upload photos of my clothes  
