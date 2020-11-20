@@ -3,6 +3,8 @@ const cloudinary = require("cloudinary");
 const { Sequelize } = require("../models");
 const db = require("../models");
 
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 require("dotenv").config();
 
 cloudinary.config({
@@ -12,7 +14,7 @@ cloudinary.config({
 });
 
 module.exports = function(app) {
-  app.post("/api/upload/tops/:filename", (req, res) => {
+  app.post("/api/upload/tops/:filename/:userid", (req, res) => {
     cloudinary.uploader
       .upload(req.files.file.tempFilePath)
       .then(result => {
@@ -27,10 +29,10 @@ module.exports = function(app) {
         const newUrl = baseUrl + "/c_scale,h_300/" + endUrl;
         res.json(result);
 
-        //now take result.secure_url and save it to db
         db.Tops.create({
           topsName: req.params.filename,
-          topsUrl: newUrl
+          topsUrl: newUrl,
+          userId: req.params.userid
         }).then(dbTop => {
           console.log("created item" + dbTop);
         });
@@ -43,7 +45,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/upload/bottoms/:filename", (req, res) => {
+  app.post("/api/upload/bottoms/:filename/:userid", (req, res) => {
     cloudinary.uploader
       .upload(req.files.file.tempFilePath)
       .then(result => {
@@ -58,10 +60,10 @@ module.exports = function(app) {
         const newUrl = baseUrl + "/c_scale,h_400/" + endUrl;
         res.json(result);
 
-        //now take result.secure_url and save it to db
         db.Bottoms.create({
           bottomsName: req.params.filename,
-          bottomsUrl: newUrl
+          bottomsUrl: newUrl,
+          userId: req.params.userid
         }).then(dbBottom => {
           console.log("created item" + dbBottom);
         });
@@ -74,7 +76,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/upload/shoes/:filename", (req, res) => {
+  app.post("/api/upload/shoes/:filename/:userid", (req, res) => {
     cloudinary.uploader
       .upload(req.files.file.tempFilePath)
       .then(result => {
@@ -88,10 +90,10 @@ module.exports = function(app) {
         const newUrl = baseUrl + "/c_scale,h_175/" + endUrl;
         res.json(result);
 
-        //now take result.secure_url and save it to db
         db.Shoes.create({
           shoesName: req.params.filename,
-          shoesUrl: newUrl
+          shoesUrl: newUrl,
+          userId: req.params.userid
         }).then(dbShoe => {
           console.log("created item" + dbShoe);
         });
@@ -105,16 +107,26 @@ module.exports = function(app) {
   });
 
   //Generator landing page
-  app.get("/generator", async (req, res) => {
+  app.get("/generator", isAuthenticated, async (req, res) => {
+    console.log(req.user.id);
     const topsData = await db.Tops.findAll({
+      where: {
+        userId: req.user.id
+      },
       order: Sequelize.literal("rand()"),
       limit: 1
     });
     const bottomsData = await db.Bottoms.findAll({
+      where: {
+        userId: req.user.id
+      },
       order: Sequelize.literal("rand()"),
       limit: 1
     });
     const shoesData = await db.Shoes.findAll({
+      where: {
+        userId: req.user.id
+      },
       order: Sequelize.literal("rand()"),
       limit: 1
     });
@@ -128,27 +140,39 @@ module.exports = function(app) {
 
   //REFRESH BUTTONS
   app.get("/tops/new", (req, res) => {
-    db.Tops.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
-      data => {
-        res.send(data[0].dataValues.topsUrl);
-      }
-    );
+    db.Tops.findAll({
+      where: {
+        userId: req.user.id
+      },
+      order: Sequelize.literal("rand()"),
+      limit: 1
+    }).then(data => {
+      res.send(data[0].dataValues.topsUrl);
+    });
   });
 
   app.get("/bottoms/new", (req, res) => {
-    db.Bottoms.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
-      data => {
-        res.send(data[0].dataValues.bottomsUrl);
-      }
-    );
+    db.Bottoms.findAll({
+      where: {
+        userId: req.user.id
+      },
+      order: Sequelize.literal("rand()"),
+      limit: 1
+    }).then(data => {
+      res.send(data[0].dataValues.bottomsUrl);
+    });
   });
 
   app.get("/shoes/new", (req, res) => {
-    db.Shoes.findAll({ order: Sequelize.literal("rand()"), limit: 1 }).then(
-      data => {
-        res.send(data[0].dataValues.shoesUrl);
-      }
-    );
+    db.Shoes.findAll({
+      where: {
+        userId: req.user.id
+      },
+      order: Sequelize.literal("rand()"),
+      limit: 1
+    }).then(data => {
+      res.send(data[0].dataValues.shoesUrl);
+    });
   });
 
   //SAVE TO FAVORITES
