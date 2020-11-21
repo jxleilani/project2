@@ -108,7 +108,6 @@ module.exports = function(app) {
 
   //Generator landing page
   app.get("/generator", isAuthenticated, async (req, res) => {
-    console.log(req.user.id);
     const topsData = await db.Tops.findAll({
       where: {
         userId: req.user.id
