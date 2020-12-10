@@ -28,7 +28,7 @@ $(document).ready(() => {
       email: email,
       password: password
     })
-      .then(() => {
+      .then((data) => {
         window.location.replace("/members");
         // If there's an error, log the error
       })

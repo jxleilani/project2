@@ -42,10 +42,17 @@ $("#saveBtn").on("click", () => {
     favShoes: shoesImageUrl
   };
 
-  $.ajax("/favorite", {
-    type: "POST",
-    data: savedOutfit
-  }).then(() => {
-    console.log("Outfit Saved");
+  $.ajax({
+    url: "/api/user_data",
+    type: "GET"
+  }).then(data => {
+    const damojoid = data.id;
+
+    $.ajax("/favorite/" + damojoid, {
+      type: "POST",
+      data: savedOutfit
+    }).then(() => {
+      console.log("Outfit Saved");
+    });
   });
 });
