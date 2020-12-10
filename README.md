@@ -1,4 +1,5 @@
-# Da.Mo.Jo - a Virtual Closet 
+# Da.Mo.Jo - a Virtual Closet ![Heroku](https://pyheroku-badge.herokuapp.com/?app=project2-damojo&style=plastic)
+
 ## Description:
 `Da.Mo.Jo’s` Virtual Closet provides the user a seamless fashion experience. With the Virtual Closet, you have the ability to upload your own styles and curate an entire outfit with the click of a button.  
 
