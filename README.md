@@ -32,7 +32,6 @@ Get Dressed Here!: https://project2-damojo.herokuapp.com/
 * Bcrypt
 
 ## Future Development:
-* Save items by user
 * My Items page still under development
 * Link stores near by 
 * Reminders on outfits not worn in the last 3 months 
